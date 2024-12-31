@@ -1,0 +1,312 @@
+/* Base Styles */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --color-red: hsl(14, 86%, 42%);
+  --color-green: hsl(159, 69%, 38%);
+
+  --color-rose-50: hsl(20, 50%, 98%);
+  --color-rose-100: hsl(13, 31%, 94%);
+  --color-rose-300: hsl(14, 25%, 72%);
+  --color-rose-400: hsl(7, 20%, 60%);
+  --color-rose-500: hsl(12, 20%, 44%);
+  --color-rose-900: hsl(14, 65%, 9%);
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  background: #fafafa;
+  font-size: 15px;
+  background-color: var(--color-rose-100);
+  color: var(--color-rose-900);
+}
+
+main {
+  width: 70%;
+  display: flex;
+  padding: 20px;
+}
+
+/* Desserts Section */
+.desserts {
+  flex: 3;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+}
+
+.product-card {
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+.product-card button {
+  background: #f76c6c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.product-card button:focus {
+  outline: 1px solid #333;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.quantity-controls button {
+  padding: 5px 10px;
+  color: white;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+  border: 1px solid #f76c6c;
+}
+
+.quantity-controls button:hover {
+  color: #f76c6c;
+  background-color: #fff;
+}
+
+/* Cart Section */
+.cart {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: calc(100vh - 40px);
+  z-index: 1000;
+  justify-content: space-between;
+}
+
+.cart h2 {
+  color: red;
+}
+
+.cart-footer {
+  margin-top: 20px;
+}
+
+.cart-items {
+  list-style: none;
+  padding: 0;
+}
+
+.cart-items li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cart-item-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.remove-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background-color: darkred;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content li {
+  list-style: none;
+  margin: 5px;
+}
+
+.modal-content i {
+  font-size: 30px;
+  color: green;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-item img {
+  border-radius: 10px;
+  height: 50px;
+}
+
+button#new-order {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button#new-order:hover {
+  background-color: #0056b3;
+}
+
+/* Toggle Button Styling */
+.toggle {
+  display: none; /* Hidden by default (desktop view) */
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background-color: var(--color-red);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.toggle i {
+  margin-right: 5px;
+}
+
+.toggle:hover {
+  background-color: darkred;
+}
+
+/* Mobile Responsive Styling */
+@media (max-width: 767px) {
+  body {
+    flex-direction: column;
+  }
+
+  main {
+    width: 100%;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .cart {
+    margin: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-top: 30px;
+    width: 100%;
+    height: 300px; /* Set height to show content */
+    background: white;
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    overflow-y: auto;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    border-top: 2px solid var(--color-rose-300);
+    z-index: 1000; /* Above other elements */
+  }
+
+  .cart.active {
+    display: flex; /* Show cart when active */
+  }
+
+  .cart-footer {
+    margin-top: auto;
+    padding: 5px 5px;
+    background: var(--color-rose-100);
+    border-top: 1px solid var(--color-rose-300);
+  }
+
+  .toggle {
+    display: block; /* Show toggle button in mobile view */
+  }
+
+  /* Adjust Product Cards for mobile */
+  .product-list {
+    grid-template-columns: 1fr; /* Single column on small screens */
+    gap: 15px;
+  }
+
+  .product-card {
+    padding: 10px;
+  }
+
+  .product-image {
+    height: 200px; /* Adjust image size for mobile */
+  }
+
+  .quantity-controls {
+    gap: 8px;
+  }
+
+  .quantity-controls button {
+    padding: 5px 8px;
+  }
+}
