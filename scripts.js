@@ -87,7 +87,7 @@ const renderProducts = () => {
     if (itemInCart) {
       card.innerHTML = `
         <picture>
-          <img src="${dessert.image.thumbnail}" alt="${dessert.name}" class="product-image">
+          <img src="${dessert.image.thumbnail}" alt="${dessert.name}" class="product-image" loading="lazy">
         </picture>
         <h3>${dessert.name}</h3>
         <p>$${dessert.price.toFixed(2)}</p>
@@ -100,7 +100,7 @@ const renderProducts = () => {
     } else {
       card.innerHTML = `
         <picture>
-          <img src="${dessert.image.thumbnail}" alt="${dessert.name}" class="product-image">
+          <img src="${dessert.image.thumbnail}" alt="${dessert.name}" class="product-image" loading="lazy">
         </picture>
         <h3>${dessert.name}</h3>
         <p>$${dessert.price.toFixed(2)}</p>
@@ -129,8 +129,8 @@ const confirmOrder = () => {
         <img src="${item.image.thumbnail}" alt="${item.name}" class="order-item-image">
         <div class="order-item-details">
           <span>${item.name}</span>
-          <p>$${item.price} x ${item.quantity}</p>
-          <p>Total: $${(item.price * item.quantity).toFixed(2)}</p>
+          <p> <span class="spanPrice">Price</span> $${item.price} <span class="spanPrice">Quntity</span>  ${item.quantity}</p>
+
         </div>
       </div>
     `;
@@ -139,7 +139,7 @@ const confirmOrder = () => {
   });
 
   const totalElement = document.getElementById('order-total');
-  totalElement.innerHTML = `<h3>Total Amount: $${total.toFixed(2)}</h3>`;
+  totalElement.innerHTML = `<h4 class="h4">Total Amount: $${total.toFixed(2)}</h4>`;
 
   // Show the modal
   modal.classList.remove('hidden');
